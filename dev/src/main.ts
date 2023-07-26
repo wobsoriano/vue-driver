@@ -4,6 +4,7 @@ import './main.css'
 
 // Using import aliases in Vite
 import { VueDriver } from '../../src'
+// @ts-expect-error: TODO: fix this
 import App from './App.vue'
 
 const app = createApp(App)
