@@ -2,7 +2,7 @@
   "name": "vue3-driver",
   "version": "0.0.0",
   "packageManager": "pnpm@8.6.10",
-  "description": "",
+  "description": "Drive the user's focus across the page with Vue and Driver.js.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/wobsoriano/vue3-driver#readme",
