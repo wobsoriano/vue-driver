@@ -50,7 +50,7 @@ onMount(() => {
 
 ### Indexing
 
-By default, the steps run from top to bottom depending on the directive placements. If you want to customize the arrangement, you can add an `index` property in the directive value, or via modifiers:
+By default, the steps run from top to bottom depending on the directive placements. If you want to customize the arrangement, you can add an `index` property to the directive value, or via modifiers:
 
 ```vue
 <template>
