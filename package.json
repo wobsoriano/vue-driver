@@ -11,7 +11,7 @@
     "url": "git+https://github.com/wobsoriano/vue3-driver.git"
   },
   "bugs": "https://github.com/wobsoriano/vue3-driver/issues",
-  "keywords": [],
+  "keywords": ["vue", "guide"],
   "sideEffects": false,
   "exports": {
     ".": {
