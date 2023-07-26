@@ -54,9 +54,9 @@ By default, the steps run from top to bottom depending on the directive placemen
 
 ```vue
 <template>
-  <header v-driver-step="{ index: 0, popover: {...} }" />
-  <main v-driver-step.2="{ popover: {...} }" />
-  <footer v-driver-step.1="{ popover: {...} }" />
+  <header v-driver-step="{ index: 0, popover: {} }" />
+  <main v-driver-step.2="{ popover: {} }" />
+  <footer v-driver-step.1="{ popover: {} }" />
 </template>
 ```
 
