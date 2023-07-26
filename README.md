@@ -1,4 +1,4 @@
-# vue3-driver
+# vue-driver
 
 Drive the user's focus across the page with Vue and [Driver.js](https://driverjs.com).
 
