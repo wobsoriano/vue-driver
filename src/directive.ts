@@ -1,4 +1,4 @@
-import { type DriveStep, driver } from 'driver.js'
+import { type Config, type DriveStep, driver } from 'driver.js'
 import { inject, unref } from 'vue'
 import type { DirectiveBinding, MaybeRefOrGetter, Plugin, VNode } from 'vue'
 
@@ -11,10 +11,16 @@ type RefDriveStep = Omit<DriveStep, 'element'> & {
   index?: number
 }
 
+type VueDriverOptions = Config & {
+  mergeSteps?: boolean
+}
+
 export const driverPlugin: Plugin = {
-  install(app, driverOptions) {
+  install(app, driverOptions: VueDriverOptions) {
     const driverSteps: DriveStep[] = []
-    const driverObj = driver(driverOptions)
+
+    const { mergeSteps, ...config } = driverOptions
+    const driverObj = driver(config)
 
     app.directive('driver-step', {
       mounted(
@@ -42,7 +48,10 @@ export const driverPlugin: Plugin = {
     })
 
     function drive(stepIndex?: number) {
-      driverObj.setSteps(driverSteps)
+      driverObj.setSteps([
+        ...(mergeSteps ? (driverOptions.steps ?? []) : []),
+        ...driverSteps,
+      ])
       driverObj.drive(stepIndex)
     }
 
