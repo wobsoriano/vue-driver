@@ -17,7 +17,10 @@ import { VueDriver } from 'vue3-driver'
 import 'driver.js/dist/driver.css'
 
 const app = createApp(App)
-app.use(VueDriver)
+app.use(VueDriver, {
+  // Driver.js options
+  // https://driverjs.com/docs/configuration
+})
 ```
 
 Use directive to add steps, and composable to start driving
