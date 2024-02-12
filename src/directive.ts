@@ -51,7 +51,7 @@ export const driverPlugin: Plugin = {
 
     function drive(stepIndex?: number) {
       driverObj.setSteps([
-        ...(mergeSteps ? (driverOptions.steps ?? []) : []),
+        ...(mergeSteps ? (config.steps ?? []) : []),
         ...driverSteps,
       ])
       driverObj.drive(stepIndex)
