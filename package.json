@@ -1,7 +1,7 @@
 {
   "name": "vue3-driver",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "packageManager": "pnpm@8.15.1",
   "description": "Drive the user's focus across the page with Vue and Driver.js.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
