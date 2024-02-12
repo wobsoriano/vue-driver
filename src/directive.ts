@@ -1,15 +1,13 @@
 import { type DriveStep, driver } from 'driver.js'
 import { inject, unref } from 'vue'
-import type { DirectiveBinding, Plugin, Ref, VNode } from 'vue'
-
-type MaybeRef<T> = T | Ref<T>
+import type { DirectiveBinding, MaybeRefOrGetter, Plugin, VNode } from 'vue'
 
 type DriverReturn = Omit<ReturnType<typeof driver>, 'highlight'> & {
   highlight: (step: RefDriveStep) => void
 }
 
 type RefDriveStep = Omit<DriveStep, 'element'> & {
-  element?: MaybeRef<string | Element | null>
+  element?: MaybeRefOrGetter<string | Element | null>
   index?: number
 }
 
