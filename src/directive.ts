@@ -1,6 +1,6 @@
 import { type Config, type DriveStep, driver } from 'driver.js'
 import { inject, unref } from 'vue'
-import type { DirectiveBinding, MaybeRefOrGetter, Plugin, VNode } from 'vue'
+import type { DirectiveBinding, InjectionKey, MaybeRefOrGetter, Plugin, VNode } from 'vue'
 
 type DriverReturn = Omit<ReturnType<typeof driver>, 'highlight'> & {
   highlight: (step: RefDriveStep) => void
@@ -14,6 +14,8 @@ type RefDriveStep = Omit<DriveStep, 'element'> & {
 type VueDriverOptions = Config & {
   mergeSteps?: boolean
 }
+
+export const VueDriverSymbol = Symbol('VueDriver') as InjectionKey<DriverReturn>
 
 export const driverPlugin: Plugin = {
   install(app, driverOptions: VueDriverOptions) {
@@ -62,7 +64,7 @@ export const driverPlugin: Plugin = {
       })
     }
 
-    app.provide<DriverReturn>('driver', {
+    app.provide(VueDriverSymbol, {
       ...driverObj,
       drive,
       highlight,
@@ -71,7 +73,7 @@ export const driverPlugin: Plugin = {
 }
 
 export function useDriver() {
-  const driver = inject<DriverReturn>('driver')
+  const driver = inject(VueDriverSymbol)
 
   if (!driver)
     throw new Error('VueDriver not found. Did you forget to install the plugin?')
