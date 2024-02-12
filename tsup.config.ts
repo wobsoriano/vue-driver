@@ -2,9 +2,10 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['src/index.ts'],
-  minify: true,
-  clean: true,
+  splitting: false,
   sourcemap: true,
-  format: ['cjs', 'esm'],
+  clean: true,
+  format: ['cjs', 'esm', 'iife'],
+  globalName: 'VueDriver',
   dts: true,
 })
